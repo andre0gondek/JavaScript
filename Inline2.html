@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Inline - 2</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: rgb(26, 26, 26);
+            color: aliceblue;
+        }
+        button{
+            color: rgb(219, 219, 219);
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid black;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        .vermelho{
+           background-color: rgb(126, 0, 0);
+           box-shadow: 3px 1px 5px rgb(66, 0, 0);
+        }
+        .verde{
+            background-color: #008000;
+            box-shadow: 3px 1px 5px rgb(5, 63, 0);
+        }
+        .azul{
+            background-color: rgb(0, 0, 121);
+            box-shadow: 3px 1px 5px rgb(0, 1, 66);
+        }
+
+        button:hover{
+            color: black;
+            transform: translateY(-1px);
+        }
+        .vermelho:hover{
+            background-color: rgb(231, 164, 164);
+            box-shadow: 3px 1px 5px rgb(5, 63, 0);
+        }
+        .verde:hover{
+            background-color: rgb(187, 248, 187);
+            box-shadow: 3px 1px 5px rgb(5, 63, 0);
+        }
+        .azul:hover{
+            background-color: rgb(198, 198, 221);
+            box-shadow: 3px 1px 5px rgb(0, 1, 66);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Eventos de botão</h1>
+    <p>Clique em um botão a baixo</p>
+    <button class="verde" onclick="const p = document.getElementById('mensagem'); p.innerText = 'este é real'; p.style.color = '#0f0'">Este</button>
+    <button class="vermelho" onclick="const p = document.getElementById('mensagem'); p.innerText = 'este não é real'; p.style.color = '#f00'">Este!</button>
+    <button class="azul"onclick="const p = document.getElementById('mensagem'); p.innerText = 'este não é real'; p.style.color = '#f00'">Este!!!!!!</button>
+    <p id="mensagem">real ou não?</p>
+</body>
+</html>

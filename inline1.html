@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos JS</title>
+    <style>
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    JS inline
+    document: é um objeto JS que representa o documento HTML
+    getElementById: é um método que permite acessar um elemento do HTML pelo seu ID
+    innerText: é uma propriedade que representa o conteúdo do texto
+    -->
+    <button type="button" onclick="document.getElementById ('teste').innerText = 'recebido'">
+        clique para receber
+    </button>
+    <h1 id="teste"></h1>
+</body>
+</html>

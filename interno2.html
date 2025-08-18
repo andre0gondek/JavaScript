@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Interno</title>
+<style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: aliceblue;
+        }
+        button{
+            color: rgb(219, 219, 219);
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid black;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        #vermelho{
+           background-color: rgb(126, 0, 0);
+           box-shadow: 3px 1px 5px rgb(66, 0, 0);
+        }
+        #verde{
+            background-color: #008000;
+            box-shadow: 3px 1px 5px rgb(5, 63, 0);
+        }
+        #azul{
+            background-color: rgb(0, 0, 121);
+            box-shadow: 3px 1px 5px rgb(0, 1, 66);
+        }
+
+        button:hover{
+            color: black;
+            transform: translateY(-1px);
+        }
+        #vermelho:hover{
+            background-color: rgb(231, 164, 164);
+            box-shadow: 3px 1px 5px rgb(5, 63, 0);
+        }
+        #verde:hover{
+            background-color: rgb(187, 248, 187);
+            box-shadow: 3px 1px 5px rgb(5, 63, 0);
+        }
+        #azul:hover{
+            background-color: rgb(198, 198, 221);
+            box-shadow: 3px 1px 5px rgb(0, 1, 66);
+        }
+
+        #temapreto{
+            color: black;
+        }
+
+        #temabranco{
+            color: aliceblue;
+            border: 1px solid white;
+            background-color: #1a1a1a;
+        }
+
+        #enviar{
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="temapreto">branco</button>
+    <button id="temabranco">preto</button>
+    <h1>Eventos de botão</h1>
+    <p>Clique em um botão a baixo</p>
+    <button id="verde" >Este</button>
+    <button id="vermelho">Este!</button>
+    <button id="azul">Este!!!!!!</button>
+    <p id="mensagem">real ou não?</p>
+    <input type="text" name="nome" id="inptnome" placeholder="Digite seu nome...">
+    <button id="enviar">Enviar nome</button>
+
+    <script>
+    const mensagem = document.getElementById('mensagem');
+    const verde = document.getElementById('verde');
+    const vermelho = document.getElementById('vermelho');
+    const azul = document.getElementById('azul');
+    const temapreto = document.getElementById('temapreto');
+    const enviar = document.getElementById('enviar');
+    const inptnome = document.getElementById('inptnome');
+    const temabranco = document.getElementById('temabranco')
+    
+    //eventos
+    verde.addEventListener('click', () =>{
+        mensagem.innerText = 'este é real'
+        mensagem.style.color = "#0f0"
+    })
+    vermelho.addEventListener('click', () =>{
+        mensagem.innerText = 'este não é real'
+        mensagem.style.color = "#f00"
+    })
+    azul.addEventListener('click', () =>{
+        mensagem.innerText = 'este jamais será real'
+        mensagem.style.color = "#f00"
+    })
+
+    // eventos para Background
+    temapreto.addEventListener('click', () =>{
+        document.body.style.backgroundColor = '#fff'
+        document.body.style.color = '#000'
+    })
+    
+    temabranco.addEventListener('click', () =>{
+        document.body.style.backgroundColor = '#1a1a1a'
+        document.body.style.color = '#fff'
+    })
+
+    //eventos de input
+    enviar.addEventListener('click', () =>{
+        const nome = inptnome.value.trim()
+        if(nome != ''){
+            mensagem.innerText = `Olá, ${nome}!`
+            mensagem.style.color = '#f00'
+        }
+        inptnome.value = ''
+    })
+
+    </script>
+</body>
+</html>
