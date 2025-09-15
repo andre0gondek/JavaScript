@@ -92,7 +92,7 @@ footer{
     padding: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /*responsividade*/
     main{
         flex-direction: column;
     }
