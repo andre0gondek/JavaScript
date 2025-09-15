@@ -91,3 +91,9 @@ footer{
     margin-top: 1rem;
     padding: 1rem;
 }
+
+@media (max-width: 768px) {
+    main{
+        flex-direction: column;
+    }
+}
