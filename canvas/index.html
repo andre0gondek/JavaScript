@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <canvas id="canvas1" width="200" height="100"
+    style="border: 1px solid black"></canvas>
+    <br>
+    <canvas id="canvas2" width="200" height="100"
+    style="border: 1px solid black"></canvas>
+
+    <script>
+        let line = document.getElementById("canvas1")
+        let ctx = line.getContext("2d")
+        ctx.moveTo(0, 0)
+        ctx.lineTo(200, 100)
+        ctx.stroke()
+
+        let elipse = document.getElementById("canvas2")
+        let ctx2 = elipse.getContext("2d")
+        ctx2.beginPath()
+        ctx2.arc(95, 50, 40, 0, 2 * Math.PI)
+        ctx2.stroke()
+    </script>
+</body>
+</html>
