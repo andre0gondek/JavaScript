@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canvas</title>
+    <style>
+        #canvas5{
+            background-color: rgb(114, 114, 114);
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,9 +24,9 @@
 
     <canvas id="canvasBarras" width="300" height="300"></canvas>
 
-    <canvas id="canvasQuadrados" width="300" height="150"></canvas>
+    <!-- <canvas id="canvas????" width="200" height="250"></canvas> -->
 
-    <canvas id="canvas????" width="200" height="250"></canvas>
+    <canvas id="canvas5" width="500" height="500"></canvas>
 
     <script>
 
@@ -75,57 +82,36 @@
         }
         drawBarras();
 
-        function drawQuadrados() {
-            const ctx = document.getElementById("canvasQuadrados").getContext("2d");
+        const bolinha = document.getElementById('canvas5')
+        const ctx5 = bolinha.getContext('2d')
+        let x = 50
+        let y = 50
+        let vx = 3 //velocidade horizontal
+        let vy = 2 //velocidade vertical
+        const raio = 20
 
-            // left rectangles, rotate from canvas origin
-            ctx.save();
-            // blue rect
-            ctx.fillStyle = "#0095DD";
-            ctx.fillRect(30, 30, 100, 100);
-            ctx.rotate((Math.PI / 180) * 25);
-            // grey rect
-            ctx.fillStyle = "#4D4E53";
-            ctx.fillRect(30, 30, 100, 100);
-            ctx.restore();
+        function animar(){
+            ctx5.clearRect(0, 0, bolinha.width, bolinha.height)
 
-            // right rectangles, rotate from rectangle center
-            // draw blue rect
-            ctx.fillStyle = "#0095DD";
-            ctx.fillRect(150, 30, 100, 100);
+            ctx5.beginPath()
+            ctx5.arc(x, y, raio, 0, 2 * Math.PI)
+            ctx5.fillStyle = 'blue'
+            ctx5.fill()
 
-            ctx.translate(200, 80); // translate to rectangle center
-            // x = x + 0.5 * width
-            // y = y + 0.5 * height
-            ctx.rotate((Math.PI / 180) * 25); // rotate
-            ctx.translate(-200, -80); // translate back
+            x += vx
+            y += vy
 
-            // draw grey rect
-            ctx.fillStyle = "#4D4E53";
-            ctx.fillRect(150, 30, 100, 100);
-        }
-        drawQuadrados();
-
-        function drawQue() {
-            const ctx = document.getElementById("canvas????").getContext("2d");
-
-            const sin = Math.sin(Math.PI / 6);
-            const cos = Math.cos(Math.PI / 6);
-            ctx.translate(100, 100);
-            let c = 0;
-            let f = 1;
-            for (let i = 0; i <= 12; i++) {
-                c = Math.floor((255 / 12) * i);
-                ctx.fillStyle = `rgb(${f} ${c} ${f})`;
-                ctx.fillRect(0, 0, 100, 10);
-                ctx.transform(cos, sin, -sin, cos, 0, 0);
+            if(x + raio > bolinha.width || x - raio < 0){
+                vx = -vx
             }
 
-            ctx.setTransform(-1, 0, 0, 1, 100, 100);
-            ctx.fillStyle = "rgb(192 0 0 / 70%)";
-            ctx.fillRect(0, 50, 100, 100);
+            if(y + raio > bolinha.height || y- raio < 0){
+                vy = -vy
+            }
+
+            requestAnimationFrame(animar)
         }
-        drawQue();
+        animar();
     </script>
 </body>
 
